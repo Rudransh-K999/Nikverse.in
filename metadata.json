@@ -1,0 +1,6 @@
+{
+  "name": "nikverse - Minecraft Creator Portfolio",
+  "description": "Guns.lol style portfolio & bio link site for Minecraft content creator nikverse featuring background video playback, glassmorphic layout, and interactive socials.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
