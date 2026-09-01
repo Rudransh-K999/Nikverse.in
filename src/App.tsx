@@ -3,6 +3,8 @@ import { IntroZoomLoader } from './components/IntroZoomLoader';
 import { VideoBackground } from './components/VideoBackground';
 import { Header } from './components/Header';
 import { GlassPanel } from './components/GlassPanel';
+import { JoinUsPage } from './components/JoinUsPage';
+import { Footer } from './components/Footer';
 import { ShareModal } from './components/ShareModal';
 import { ContactModal } from './components/ContactModal';
 import { CustomCursor } from './components/CustomCursor';
@@ -14,6 +16,7 @@ export default function App() {
   const [themeMode, setThemeMode] = useState<ThemeMode>('light');
   const [accent, setAccent] = useState<ThemeAccent>('gold');
   const [activeSection, setActiveSection] = useState('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'join-us'>('home');
   const [currentVideo, setCurrentVideo] = useState<BackgroundVideo>(LIGHT_THEME_VIDEO);
   
   // Background Video playback and filter settings
@@ -32,6 +35,25 @@ export default function App() {
       setCurrentVideo(nextMode === 'light' ? LIGHT_THEME_VIDEO : DARK_THEME_VIDEO);
       return nextMode;
     });
+  };
+
+  const handleNavigateToJoinUs = () => {
+    setCurrentPage('join-us');
+    setActiveSection('join-us');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateToHome = (sectionId: string = 'home') => {
+    setCurrentPage('home');
+    setActiveSection(sectionId);
+    if (sectionId === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      setTimeout(() => {
+        const elem = document.getElementById(sectionId);
+        if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
+    }
   };
 
   return (
@@ -69,22 +91,44 @@ export default function App() {
         isReady={isIntroComplete}
         currentAccent={accent}
         themeMode={themeMode}
-        activeSection={activeSection}
-        onSelectSection={setActiveSection}
+        activeSection={currentPage === 'join-us' ? 'join-us' : activeSection}
+        onSelectSection={(sec) => {
+          if (sec === 'join-us') {
+            handleNavigateToJoinUs();
+          } else {
+            handleNavigateToHome(sec);
+          }
+        }}
         onSelectAccent={setAccent}
         onToggleTheme={handleToggleTheme}
         onOpenShare={() => setIsShareOpen(true)}
         onOpenContact={() => setIsContactOpen(true)}
+        onOpenJoinUs={handleNavigateToJoinUs}
       />
 
       {/* Main Hero Landing & Content Sections */}
-      <main className="relative z-10 w-full">
-        <GlassPanel
-          accent={accent}
-          themeMode={themeMode}
-          onOpenContact={() => setIsContactOpen(true)}
-        />
+      <main className="relative z-10 w-full pt-16 sm:pt-20">
+        {currentPage === 'join-us' ? (
+          <JoinUsPage
+            themeMode={themeMode}
+            onBackToHome={() => handleNavigateToHome('home')}
+          />
+        ) : (
+          <GlassPanel
+            accent={accent}
+            themeMode={themeMode}
+            onOpenContact={() => setIsContactOpen(true)}
+          />
+        )}
       </main>
+
+      {/* Real Full-Width Website Footer */}
+      <Footer
+        themeMode={themeMode}
+        onNavigate={(sec) => handleNavigateToHome(sec)}
+        onOpenContact={() => setIsContactOpen(true)}
+        onOpenJoinUs={handleNavigateToJoinUs}
+      />
 
       {/* Modals */}
       <ShareModal
@@ -100,4 +144,3 @@ export default function App() {
     </div>
   );
 }
-

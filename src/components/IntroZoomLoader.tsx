@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { preloadAllAppAssets } from '../utils/imagePreloader';
 
 interface IntroZoomLoaderProps {
   onComplete: () => void;
@@ -12,12 +13,15 @@ export const IntroZoomLoader: React.FC<IntroZoomLoaderProps> = ({ onComplete }) 
     // Prevent scrolling while loading overlay is active
     document.body.style.overflow = 'hidden';
 
-    // Sequence timing: 0.8s fade in + 0.5s pause + 0.8s cinematic zoom = ~2.1s total
+    // Kick off full application asset preloading & decoding in background immediately
+    preloadAllAppAssets();
+
+    // Sequence timing: 0.8s fade in + 0.5s pause + 0.8s cinematic zoom = ~2.0s total
     const timer = setTimeout(() => {
       setIsVisible(false);
       // Re-enable scrolling when overlay fades out
       document.body.style.overflow = '';
-      setTimeout(onComplete, 500);
+      setTimeout(onComplete, 400);
     }, 2000);
 
     return () => {

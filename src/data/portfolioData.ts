@@ -21,7 +21,9 @@ export const PROFILE_INFO = {
   discordMembers: '18.4K',
   minecraftIP: 'mc.nikverse.net',
   location: 'Earth / GMT+0',
-  email: 'business@nikverse.net',
+  email: 'team.nikverse@gmail.com',
+  sponsorEmail: 'team.nikverse@gmail.com',
+  contactImage: 'https://i.ibb.co/Wpy2pxxk/Gemini-Generated-Image-qurypequrypequry-removebg-preview.png',
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
@@ -50,7 +52,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     id: 'discord',
     name: 'Discord Community',
-    url: 'https://discord.gg/nikverse',
+    url: 'https://discord.gg/9bCw52SCy4',
     iconName: 'MessageSquare',
     description: 'Join 18,000+ builders, share screenshots & chat',
     category: 'community',
@@ -258,6 +260,8 @@ export interface CreatorChannel {
   description: string;
   url: string;
   logo: string;
+  bgImage?: string;
+  fallbackBgImage?: string;
   subscribersOrFollowers?: string;
 }
 
@@ -276,6 +280,7 @@ export const CHANNELS_AND_PLATFORMS: CreatorChannel[] = [
     description: 'simple GTA Streams and Videos',
     url: 'https://www.youtube.com/@NikisLiveNow',
     logo: 'https://yt3.googleusercontent.com/a3LeRccig4dQoCsME-OKtZEF3sgIz7VSBdCEGgFomsTdJi1miuPJbcmsxixJ4aVs_648i85pzA=s176-c-k-c0x00ffffff-no-rj-mo',
+    bgImage: 'https://store-images.s-microsoft.com/image/apps.50223.14086826113896348.0ac2ef86-2cca-45c3-9d11-1dc9ac71c024.34520097-f601-4a06-b16d-e40280f0fc15',
     subscribersOrFollowers: 'GTA Content'
   },
   {
@@ -292,6 +297,7 @@ export const CHANNELS_AND_PLATFORMS: CreatorChannel[] = [
     description: 'Streams Videos fun',
     url: 'https://www.youtube.com/@OnlyNikVerse',
     logo: 'https://yt3.googleusercontent.com/zIpY9IYOxichfcpnbQY_hZ_3UIe35KL4ph3OGOB_T1zAJLyJVF5LC97QjEZ5cX0RV8gv73VX=s160-c-k-c0x00ffffff-no-rj',
+    bgImage: 'https://punishedbacklog.com/wp-content/uploads/2025/04/Best-Video-Games-of-All-Time-Top-50-Video-Games-List-The-Punished-Backlog-.png',
     subscribersOrFollowers: '10,000+ Subs'
   },
   {
@@ -308,6 +314,8 @@ export const CHANNELS_AND_PLATFORMS: CreatorChannel[] = [
     description: 'Fun Minecraft Content!!',
     url: 'https://www.youtube.com/@NikGamerOP',
     logo: 'https://yt3.googleusercontent.com/wfm3lt-ORBvbq_2fPczlcNAet-ANNfE0dAR-M2CTyc0IeT2Gqv47WLgXgueYviAvFgbk1SIBQA=s176-c-k-c0x00ffffff-no-rj-mo',
+    bgImage: 'https://images.nintendolife.com/934e0ab879771/large.jpg',
+    fallbackBgImage: 'https://moewalls.com/wp-content/uploads/2026/07/cherry-blossom-lake-house-minecraft-thumb.jpg',
     subscribersOrFollowers: 'Minecraft Hub'
   },
   {
@@ -324,6 +332,8 @@ export const CHANNELS_AND_PLATFORMS: CreatorChannel[] = [
     description: 'Funny reels that make your day!',
     url: 'https://www.instagram.com/onlynikverse',
     logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSblNBRFyCGTPscHq-i6MH7ZmNdHHKatsnLZoUD_YPu1w&s=10',
+    bgImage: 'https://img.magnific.com/free-photo/pile-3d-instagram-logos_1379-876.jpg?semt=ais_hybrid&w=740&q=80',
+    fallbackBgImage: 'https://img.magnific.com/free-photo/pile-3d-instagram-logos_1379-876.jpg',
     subscribersOrFollowers: 'Daily Updates'
   },
   {
@@ -339,7 +349,9 @@ export const CHANNELS_AND_PLATFORMS: CreatorChannel[] = [
     glowHover: 'hover:shadow-[0_20px_40px_rgba(52,211,153,0.4)]',
     description: 'Fun streams, Giveaways and much more',
     url: 'https://kick.com/onlynikverse',
-    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXqZIb7bAcmtrUt72jw8C86UTXmbO3tkcFHLjznOhcw&s=10',
+    logo: 'https://logos-world.net/wp-content/uploads/2024/01/Kick-Logo.png',
+    bgImage: 'https://a-ap.storyblok.com/f/3000288/3840x2160/18efe94770/kick-banner.jpg',
+    fallbackBgImage: 'https://a-ap.storyblok.com/f/3000288/3840x2160/18efe94770/kick-banner.jpg',
     subscribersOrFollowers: 'Live Stream'
   }
 ];

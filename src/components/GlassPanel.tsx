@@ -18,6 +18,10 @@ import {
   INITIAL_GUESTBOOK,
   CHANNELS_AND_PLATFORMS
 } from '../data/portfolioData';
+import { RecentUploads } from './RecentUploads';
+import { VoidMCSection } from './VoidMCSection';
+import { CommunitySection } from './CommunitySection';
+import { ContactSection } from './ContactSection';
 import { ThemeAccent, GuestbookEntry, ThemeMode } from '../types';
 
 interface GlassPanelProps {
@@ -28,6 +32,7 @@ interface GlassPanelProps {
 
 export const GlassPanel: React.FC<GlassPanelProps> = ({
   themeMode = 'light',
+  onOpenContact
 }) => {
   const [avatarSrc, setAvatarSrc] = useState<string>(PROFILE_INFO.avatar);
   const [whoAmISrc, setWhoAmISrc] = useState<string>(
@@ -171,7 +176,7 @@ export const GlassPanel: React.FC<GlassPanelProps> = ({
                 src={whoAmISrc}
                 alt="Who Am I - Nikverse"
                 referrerPolicy="no-referrer"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
                 onError={() => setWhoAmISrc('https://i.ibb.co/Y4YLkxH8/avatar-Body5-1.png')}
                 className="w-auto h-auto max-h-[110px] xs:max-h-[140px] sm:max-h-[180px] md:max-h-[220px] object-contain drop-shadow-[0_10px_18px_rgba(0,0,0,0.85)] drop-shadow-[0_0_14px_rgba(245,158,11,0.25)] transition-transform duration-300 hover:scale-[1.03]"
@@ -244,23 +249,47 @@ export const GlassPanel: React.FC<GlassPanelProps> = ({
                   href={ch.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group relative rounded-3xl p-6 sm:p-8 ${ch.borderHover} transition-all duration-300 hover:-translate-y-1.5 flex flex-col items-center text-center justify-between cursor-pointer hardware-accelerated bg-transparent border ${
+                  className={`group relative rounded-3xl p-6 sm:p-8 ${ch.borderHover} transition-all duration-300 hover:-translate-y-1.5 flex flex-col items-center text-center justify-between cursor-pointer hardware-accelerated border overflow-hidden backdrop-blur-sm ${
                     themeMode === 'light'
                       ? isMiddleCard
-                        ? 'border-2 border-amber-400/90 shadow-[0_12px_36px_rgba(245,158,11,0.2)] md:-translate-y-3'
-                        : 'border border-white/60 shadow-[0_8px_24px_rgba(0,0,0,0.1)] hover:border-amber-400/80 hover:shadow-[0_12px_36px_rgba(245,158,11,0.2)]'
+                        ? 'bg-black/10 hover:bg-black/15 border-2 border-amber-400 shadow-[0_12px_36px_rgba(0,0,0,0.15)] md:-translate-y-3'
+                        : 'bg-black/5 hover:bg-black/10 border border-white/30 shadow-[0_8px_24px_rgba(0,0,0,0.12)] hover:border-amber-400/80 hover:shadow-[0_12px_36px_rgba(0,0,0,0.2)]'
                       : isMiddleCard
-                        ? 'border border-amber-400/70 shadow-[0_12px_36px_rgba(245,158,11,0.3)] md:-translate-y-3'
-                        : 'border border-white/20 shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:border-white/50 hover:shadow-[0_12px_36px_rgba(255,255,255,0.15)]'
+                        ? 'bg-black/20 hover:bg-black/30 border border-amber-400/80 shadow-[0_12px_36px_rgba(0,0,0,0.35)] md:-translate-y-3'
+                        : 'bg-black/15 hover:bg-black/25 border border-white/15 shadow-[0_8px_24px_rgba(0,0,0,0.25)] hover:border-amber-400/70 hover:shadow-[0_12px_36px_rgba(0,0,0,0.35)]'
                   }`}
                 >
+                  {/* TRANSLUCENT BACKGROUND IMAGE - BLENDED WITH VIDEO BG */}
+                  {ch.bgImage && (
+                    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none rounded-3xl [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_100%)]">
+                      <img
+                        src={ch.bgImage}
+                        alt=""
+                        aria-hidden="true"
+                        referrerPolicy="no-referrer"
+                        loading="eager"
+                        decoding="async"
+                        onError={(e) => {
+                          if (ch.fallbackBgImage) {
+                            (e.currentTarget as HTMLImageElement).src = ch.fallbackBgImage;
+                          } else {
+                            (e.currentTarget as HTMLImageElement).style.display = 'none';
+                          }
+                        }}
+                        className="w-full h-full object-cover scale-105 group-hover:scale-115 opacity-40 sm:opacity-45 group-hover:opacity-60 mix-blend-overlay transition-all duration-700 ease-out"
+                      />
+                      {/* Ambient Gradient Overlays for Video Passthrough & Crisp Text */}
+                      <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/45 group-hover:from-black/15 group-hover:to-black/35 transition-colors duration-300" />
+                    </div>
+                  )}
+
                   {/* Centered Logo Avatar */}
-                  <div className="flex flex-col items-center mt-2 mb-4">
-                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-amber-400/80 bg-zinc-950 p-1 shadow-2xl transition-transform duration-200 group-hover:scale-105">
+                  <div className="relative z-10 flex flex-col items-center mt-2 mb-4">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-amber-400/80 bg-zinc-950 p-1 shadow-2xl transition-transform duration-200 group-hover:scale-105 flex items-center justify-center">
                       <img
                         src={ch.logo}
                         alt={ch.title}
-                        loading="lazy"
+                        loading="eager"
                         decoding="async"
                         onError={(e) => {
                           (e.currentTarget as HTMLImageElement).src = 'https://i.ibb.co/Y4YLkxH8/avatar-Body5-1.png';
@@ -271,19 +300,19 @@ export const GlassPanel: React.FC<GlassPanelProps> = ({
                   </div>
 
                   {/* Card Title */}
-                  <div className="mb-2">
+                  <div className="relative z-10 mb-2">
                     <h3 className="heading-yellow-outline text-2xl sm:text-3xl font-black font-sans tracking-tight">
                       {ch.title}
                     </h3>
                   </div>
 
                   {/* Short Description */}
-                  <p className="text-white-outline-soft text-sm leading-relaxed mb-6 font-medium max-w-xs">
+                  <p className="relative z-10 text-white-outline-soft text-sm leading-relaxed mb-6 font-medium max-w-xs">
                     {ch.description}
                   </p>
 
                   {/* Action CTA Button */}
-                  <div className="w-full pt-2">
+                  <div className="relative z-10 w-full pt-2">
                     <div className="w-full py-3 px-4 rounded-full border border-black bg-white/10 group-hover:bg-gradient-to-r group-hover:from-amber-400 group-hover:to-yellow-400 group-hover:text-zinc-950 text-amber-300 font-mono text-xs font-black uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md [text-shadow:_0_1px_3px_rgba(0,0,0,0.8)] group-hover:[text-shadow:none]">
                       <span>Visit Channel</span>
                       <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -316,42 +345,66 @@ export const GlassPanel: React.FC<GlassPanelProps> = ({
                 href={ch.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group relative rounded-3xl p-6 sm:p-8 ${ch.borderHover} transition-all duration-300 hover:-translate-y-1.5 flex flex-col items-center text-center justify-between cursor-pointer hardware-accelerated bg-transparent border ${
+                className={`group relative rounded-3xl p-6 sm:p-8 ${ch.borderHover} transition-all duration-300 hover:-translate-y-1.5 flex flex-col items-center text-center justify-between cursor-pointer hardware-accelerated border overflow-hidden backdrop-blur-sm ${
                   themeMode === 'light'
-                    ? 'border border-white/60 shadow-[0_8px_24px_rgba(0,0,0,0.1)] hover:border-amber-400/80 hover:shadow-[0_12px_36px_rgba(245,158,11,0.2)]'
-                    : 'border border-white/20 shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:border-white/50 hover:shadow-[0_12px_36px_rgba(255,255,255,0.15)]'
+                    ? 'bg-black/5 hover:bg-black/10 border border-white/30 shadow-[0_8px_24px_rgba(0,0,0,0.12)] hover:border-amber-400/80 hover:shadow-[0_12px_36px_rgba(0,0,0,0.2)]'
+                    : 'bg-black/15 hover:bg-black/25 border border-white/15 shadow-[0_8px_24px_rgba(0,0,0,0.25)] hover:border-amber-400/70 hover:shadow-[0_12px_36px_rgba(0,0,0,0.35)]'
                 }`}
               >
+                {/* TRANSLUCENT BACKGROUND IMAGE - BLENDED WITH VIDEO BG */}
+                {ch.bgImage && (
+                  <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none rounded-3xl [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_100%)]">
+                    <img
+                      src={ch.bgImage}
+                      alt=""
+                      aria-hidden="true"
+                      referrerPolicy="no-referrer"
+                      loading="eager"
+                      decoding="async"
+                      onError={(e) => {
+                        if (ch.fallbackBgImage) {
+                          (e.currentTarget as HTMLImageElement).src = ch.fallbackBgImage;
+                        } else {
+                          (e.currentTarget as HTMLImageElement).style.display = 'none';
+                        }
+                      }}
+                      className="w-full h-full object-cover scale-105 group-hover:scale-115 opacity-40 sm:opacity-45 group-hover:opacity-60 mix-blend-overlay transition-all duration-700 ease-out"
+                    />
+                    {/* Ambient Gradient Overlays for Video Passthrough & Crisp Text */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/45 group-hover:from-black/15 group-hover:to-black/35 transition-colors duration-300" />
+                  </div>
+                )}
+
                 {/* Centered Logo Avatar */}
-                <div className="flex flex-col items-center mt-2 mb-4">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-amber-400/80 bg-zinc-950 p-1 shadow-2xl transition-transform duration-200 group-hover:scale-105">
+                <div className="relative z-10 flex flex-col items-center mt-2 mb-4">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-amber-400/80 bg-zinc-950 p-1.5 shadow-2xl transition-transform duration-200 group-hover:scale-105 flex items-center justify-center">
                     <img
                       src={ch.logo}
                       alt={ch.title}
-                      loading="lazy"
+                      loading="eager"
                       decoding="async"
                       onError={(e) => {
                         (e.currentTarget as HTMLImageElement).src = 'https://i.ibb.co/Y4YLkxH8/avatar-Body5-1.png';
                       }}
-                      className="w-full h-full object-cover rounded-full"
+                      className="w-full h-full object-contain rounded-full"
                     />
                   </div>
                 </div>
 
                 {/* Card Title */}
-                <div className="mb-2">
+                <div className="relative z-10 mb-2">
                   <h3 className="heading-yellow-outline text-2xl sm:text-3xl font-black font-sans tracking-tight">
                     {ch.title}
                   </h3>
                 </div>
 
                 {/* Short Description */}
-                <p className="text-white-outline-soft text-sm leading-relaxed mb-6 font-medium max-w-xs">
+                <p className="relative z-10 text-white-outline-soft text-sm leading-relaxed mb-6 font-medium max-w-xs">
                   {ch.description}
                 </p>
 
                 {/* Action CTA Button */}
-                <div className="w-full pt-2">
+                <div className="relative z-10 w-full pt-2">
                   <div className="w-full py-3 px-4 rounded-full border border-black bg-white/10 group-hover:bg-gradient-to-r group-hover:from-amber-400 group-hover:to-yellow-400 group-hover:text-zinc-950 text-amber-300 font-mono text-xs font-black uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-md [text-shadow:_0_1px_3px_rgba(0,0,0,0.8)] group-hover:[text-shadow:none]">
                     <span>Visit {ch.platform}</span>
                     <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -362,6 +415,18 @@ export const GlassPanel: React.FC<GlassPanelProps> = ({
           </div>
         </div>
       </section>
+
+      {/* RECENT UPLOADS SECTION (#uploads) */}
+      <RecentUploads themeMode={themeMode} />
+
+      {/* JOIN MY COMMUNITY / DISCORD SECTION (#community) */}
+      <CommunitySection themeMode={themeMode} />
+
+      {/* VOID MC MINECRAFT SERVER SECTION (#voidmc) - Placed below Discord */}
+      <VoidMCSection themeMode={themeMode} />
+
+      {/* CONTACT US / SPONSORS & COLLABORATIONS SECTION (#contact) */}
+      <ContactSection themeMode={themeMode} />
 
     </div>
   );
