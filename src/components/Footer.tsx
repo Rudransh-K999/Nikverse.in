@@ -101,34 +101,33 @@ export const Footer: React.FC<FooterProps> = ({
   const quickLinks = [
     { label: 'Home', id: 'home' },
     { label: 'About', id: 'story' },
-    { label: 'Recent Streams', id: 'uploads' },
-    { label: 'Discord', id: 'community' },
+    { label: 'Videos & Streams', id: 'uploads' },
     { label: 'Contact', id: 'contact' }
   ];
 
   return (
     <>
       <footer
-        className={`w-full border-t relative z-20 transition-colors duration-500 mt-16 sm:mt-20 ${
+        className={`w-full shrink-0 border-t relative z-20 transition-colors duration-300 mt-12 sm:mt-16 ${
           themeMode === 'light'
-            ? 'border-white/20 bg-black/40 backdrop-blur-2xl text-white shadow-[0_-10px_35px_rgba(0,0,0,0.2)]'
-            : 'border-white/15 bg-black/60 backdrop-blur-2xl text-white shadow-[0_-10px_35px_rgba(0,0,0,0.5)]'
+            ? 'border-white/10 bg-[#07070a]/95 backdrop-blur-xl text-white'
+            : 'border-white/10 bg-[#07070a]/95 backdrop-blur-xl text-white'
         }`}
       >
-        {/* Liquid Glass Top Gloss Highlight Line */}
-        <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-amber-400/50 to-transparent pointer-events-none" />
+        {/* Subtle top accent line */}
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-amber-400/40 to-transparent pointer-events-none" />
 
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 py-7 sm:py-8 flex flex-col gap-5">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 py-6 sm:py-7 flex flex-col gap-5">
           
           {/* Main Clean Row: Logo + Platform Icon Logos + Scroll to top */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-5 pb-5 border-b border-white/10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 pb-4 border-b border-white/10">
             
             {/* Logo & Brand (Click 4 times for Dev credits) */}
             <div className="flex items-center gap-3">
               <button
                 onClick={handleLogoClick}
                 title="⚡ Nikverse Logo"
-                className="w-10 h-10 rounded-full overflow-hidden border border-white/70 ring-2 ring-amber-400/40 shadow-[0_0_12px_rgba(245,158,11,0.35)] shrink-0 bg-black cursor-pointer hover:scale-105 active:scale-95 transition-transform"
+                className="w-9 h-9 rounded-full overflow-hidden border border-white/60 ring-1 ring-amber-400/40 shadow-[0_0_10px_rgba(245,158,11,0.3)] shrink-0 bg-black cursor-pointer hover:scale-105 active:scale-95 transition-transform"
               >
                 <img
                   src={loadingScreenLogo}
@@ -137,13 +136,13 @@ export const Footer: React.FC<FooterProps> = ({
                   className="w-full h-full object-cover"
                 />
               </button>
-              <span className="font-sans font-black text-lg tracking-wide uppercase heading-yellow-outline block">
+              <span className="font-sans font-black text-base sm:text-lg tracking-wide uppercase heading-yellow-outline block">
                 {PROFILE_INFO.name}
               </span>
             </div>
 
             {/* Social Platform Logos / Icons */}
-            <div className="flex items-center gap-3 flex-wrap justify-center">
+            <div className="flex items-center gap-2.5 flex-wrap justify-center">
               {socialLogos.map((item) => (
                 <a
                   key={item.label}
@@ -152,7 +151,7 @@ export const Footer: React.FC<FooterProps> = ({
                   rel={item.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
                   aria-label={item.label}
                   title={item.label}
-                  className={`w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95 backdrop-blur-sm shadow-sm ${item.hoverColor}`}
+                  className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center transition-all duration-200 cursor-pointer active:scale-95 backdrop-blur-sm shadow-sm ${item.hoverColor}`}
                 >
                   {item.icon}
                 </a>
@@ -162,11 +161,11 @@ export const Footer: React.FC<FooterProps> = ({
             {/* Scroll Back to Top Button */}
             <button
               onClick={scrollToTop}
-              className="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-amber-400 hover:text-zinc-950 text-zinc-200 border border-white/20 hover:border-amber-400 text-xs font-mono font-black uppercase tracking-wider flex items-center gap-1.5 transition-all duration-200 cursor-pointer active:scale-95 shadow-sm shrink-0"
+              className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-amber-400 hover:text-zinc-950 text-zinc-300 border border-white/10 hover:border-amber-400 text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all duration-200 cursor-pointer active:scale-95 shrink-0"
               title="Back to Top"
             >
               <span>Top</span>
-              <ArrowUp className="w-3 h-3" />
+              <ArrowUp className="w-3.5 h-3.5" />
             </button>
 
           </div>
@@ -175,7 +174,7 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-zinc-400 text-center sm:text-left">
             
             {/* Quick Page Text Links */}
-            <div className="flex items-center gap-4 flex-wrap justify-center font-bold">
+            <div className="flex items-center gap-4 flex-wrap justify-center font-medium">
               {quickLinks.map((link) => (
                 <button
                   key={link.id}
@@ -191,7 +190,7 @@ export const Footer: React.FC<FooterProps> = ({
                       if (elem) elem.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className="hover:text-amber-300 transition-colors cursor-pointer"
+                  className="hover:text-amber-400 transition-colors cursor-pointer"
                 >
                   {link.label}
                 </button>

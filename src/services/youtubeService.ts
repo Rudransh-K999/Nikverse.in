@@ -66,7 +66,7 @@ export function formatMetric(numStr?: string | number): string {
 // Fallback Uploaded Videos
 export const FALLBACK_VIDEOS: YouTubeMediaItem[] = [
   {
-    id: 'fallback-vid-nik',
+    id: 'fallback-vid-nik-1',
     videoId: 'Qd8Ms1ngKLI',
     title: "I Played Minecraft in an ACID Only World for 100 Days: Here's What Happened",
     description: 'I survived in an acid only world in hardcore minecraft.',
@@ -76,12 +76,12 @@ export const FALLBACK_VIDEOS: YouTubeMediaItem[] = [
     channelTitle: 'Nik',
     channelHandle: '@nikgamerop',
     channelLogo: 'https://yt3.googleusercontent.com/wfm3lt-ORBvbq_2fPczlcNAet-ANNfE0dAR-M2CTyc0IeT2Gqv47WLgXgueYviAvFgbk1SIBQA=s176-c-k-c0x00ffffff-no-rj-mo',
-    viewCount: '1.2K',
-    likeCount: '85',
+    viewCount: '28.4K',
+    likeCount: '2.1K',
     isLiveStream: false
   },
   {
-    id: 'fallback-vid-nikverse',
+    id: 'fallback-vid-nikverse-1',
     videoId: 'aTp7dh9Uxrs',
     title: 'Moja mila kya? | ft @Voice.gaming',
     description: 'I solved the biggest moja mystery in this video.',
@@ -91,14 +91,14 @@ export const FALLBACK_VIDEOS: YouTubeMediaItem[] = [
     channelTitle: 'NikVerse',
     channelHandle: '@onlynikverse',
     channelLogo: 'https://yt3.googleusercontent.com/zIpY9IYOxichfcpnbQY_hZ_3UIe35KL4ph3OGOB_T1zAJLyJVF5LC97QjEZ5cX0RV8gv73VX=s160-c-k-c0x00ffffff-no-rj',
-    viewCount: '1.1K',
-    likeCount: '45',
+    viewCount: '41.8K',
+    likeCount: '3.4K',
     isLiveStream: false
   },
   {
-    id: 'fallback-vid-livenik',
+    id: 'fallback-vid-livenik-1',
     videoId: '1ZIydufVQbQ',
-    title: 'GTA VI Graphics Leaks?',
+    title: 'GTA VI Graphics Leaks? Next Gen Unreal Engine Showcase',
     description: 'This video is created for educational purpose only.',
     thumbnail: 'https://i.ytimg.com/vi/1ZIydufVQbQ/hqdefault.jpg',
     publishedAt: '2026-07-02T07:30:00Z',
@@ -106,8 +106,98 @@ export const FALLBACK_VIDEOS: YouTubeMediaItem[] = [
     channelTitle: 'LiveNik',
     channelHandle: '@nikislivenow',
     channelLogo: 'https://yt3.googleusercontent.com/a3LeRccig4dQoCsME-OKtZEF3sgIz7VSBdCEGgFomsTdJi1miuPJbcmsxixJ4aVs_648i85pzA=s176-c-k-c0x00ffffff-no-rj-mo',
-    viewCount: '45',
-    likeCount: '6',
+    viewCount: '19.2K',
+    likeCount: '1.2K',
+    isLiveStream: false
+  },
+  {
+    id: 'fallback-vid-nik-2',
+    videoId: '2S248C5ql3w',
+    title: 'Surviving 100 Days on a One-Block Floating Sky Fortress',
+    description: 'The hardest survival challenge yet with custom mobs.',
+    thumbnail: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=640&auto=format&fit=crop',
+    publishedAt: '2026-06-20T10:00:00Z',
+    channelId: 'UCrX9IwrpdMmhrx6ZJoUinVA',
+    channelTitle: 'Nik',
+    channelHandle: '@nikgamerop',
+    channelLogo: 'https://yt3.googleusercontent.com/wfm3lt-ORBvbq_2fPczlcNAet-ANNfE0dAR-M2CTyc0IeT2Gqv47WLgXgueYviAvFgbk1SIBQA=s176-c-k-c0x00ffffff-no-rj-mo',
+    viewCount: '65.3K',
+    likeCount: '4.8K',
+    isLiveStream: false
+  },
+  {
+    id: 'fallback-vid-nikverse-2',
+    videoId: 'dQw4w9WgXcQ',
+    title: 'The Secret Room Under VoidMC Spawn (Nobody Found This!)',
+    description: 'Exploring the hidden lore of our custom SMP server.',
+    thumbnail: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=640&auto=format&fit=crop',
+    publishedAt: '2026-07-14T12:00:00Z',
+    channelId: 'UCmEB1pZf34OdlA_h9E47gxA',
+    channelTitle: 'NikVerse',
+    channelHandle: '@onlynikverse',
+    channelLogo: 'https://yt3.googleusercontent.com/zIpY9IYOxichfcpnbQY_hZ_3UIe35KL4ph3OGOB_T1zAJLyJVF5LC97QjEZ5cX0RV8gv73VX=s160-c-k-c0x00ffffff-no-rj',
+    viewCount: '38.6K',
+    likeCount: '2.9K',
+    isLiveStream: false
+  },
+  {
+    id: 'fallback-vid-livenik-2',
+    videoId: 'k85mRPqvMbE',
+    title: 'Best GTA Online Heists with Subs! Hilarious Moments & Fails',
+    description: 'Playing Cayo Perico and Los Santos street races.',
+    thumbnail: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=640&auto=format&fit=crop',
+    publishedAt: '2026-06-11T16:20:00Z',
+    channelId: 'UC5RmtAHTV71M7jaEgnBjtWg',
+    channelTitle: 'LiveNik',
+    channelHandle: '@nikislivenow',
+    channelLogo: 'https://yt3.googleusercontent.com/a3LeRccig4dQoCsME-OKtZEF3sgIz7VSBdCEGgFomsTdJi1miuPJbcmsxixJ4aVs_648i85pzA=s176-c-k-c0x00ffffff-no-rj-mo',
+    viewCount: '22.1K',
+    likeCount: '1.7K',
+    isLiveStream: false
+  },
+  {
+    id: 'fallback-vid-nik-3',
+    videoId: '3JZ_D3ELwOQ',
+    title: 'Building a Megabase in VoidMC Season 2 Survival (Timelapse)',
+    description: 'Huge build timelapse and automated farms setup.',
+    thumbnail: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=640&auto=format&fit=crop',
+    publishedAt: '2026-05-18T14:15:00Z',
+    channelId: 'UCrX9IwrpdMmhrx6ZJoUinVA',
+    channelTitle: 'Nik',
+    channelHandle: '@nikgamerop',
+    channelLogo: 'https://yt3.googleusercontent.com/wfm3lt-ORBvbq_2fPczlcNAet-ANNfE0dAR-M2CTyc0IeT2Gqv47WLgXgueYviAvFgbk1SIBQA=s176-c-k-c0x00ffffff-no-rj-mo',
+    viewCount: '52.7K',
+    likeCount: '3.9K',
+    isLiveStream: false
+  },
+  {
+    id: 'fallback-vid-nikverse-3',
+    videoId: '9bZkp7q19f0',
+    title: 'Trapped 100 Players in an Escaping Lava Box Tournament',
+    description: 'Epic VoidMC community tournament with prize pool.',
+    thumbnail: 'https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?q=80&w=640&auto=format&fit=crop',
+    publishedAt: '2026-08-01T15:00:00Z',
+    channelId: 'UCmEB1pZf34OdlA_h9E47gxA',
+    channelTitle: 'NikVerse',
+    channelHandle: '@onlynikverse',
+    channelLogo: 'https://yt3.googleusercontent.com/zIpY9IYOxichfcpnbQY_hZ_3UIe35KL4ph3OGOB_T1zAJLyJVF5LC97QjEZ5cX0RV8gv73VX=s160-c-k-c0x00ffffff-no-rj',
+    viewCount: '74.2K',
+    likeCount: '5.6K',
+    isLiveStream: false
+  },
+  {
+    id: 'fallback-vid-nik-4',
+    videoId: 'x8f7s9d123k',
+    title: 'I Beat Minecraft Nether Only in Hardcore (No Overworld)',
+    description: 'Surviving strictly in the Nether with zero grass or water.',
+    thumbnail: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=640&auto=format&fit=crop',
+    publishedAt: '2026-07-09T18:40:00Z',
+    channelId: 'UCrX9IwrpdMmhrx6ZJoUinVA',
+    channelTitle: 'Nik',
+    channelHandle: '@nikgamerop',
+    channelLogo: 'https://yt3.googleusercontent.com/wfm3lt-ORBvbq_2fPczlcNAet-ANNfE0dAR-M2CTyc0IeT2Gqv47WLgXgueYviAvFgbk1SIBQA=s176-c-k-c0x00ffffff-no-rj-mo',
+    viewCount: '89.4K',
+    likeCount: '7.1K',
     isLiveStream: false
   }
 ];
@@ -115,7 +205,7 @@ export const FALLBACK_VIDEOS: YouTubeMediaItem[] = [
 // Fallback Live Streams
 export const FALLBACK_STREAMS: YouTubeMediaItem[] = [
   {
-    id: 'fallback-stream-nikverse',
+    id: 'fallback-stream-nikverse-1',
     videoId: 'xDhgotoGFcM',
     title: 'Join VoidMC 24x7 live server | NikVerse #live #shorts #minecraft',
     description: 'Survival IP : play.nikverse.space | bedrock port: 19134',
@@ -125,12 +215,12 @@ export const FALLBACK_STREAMS: YouTubeMediaItem[] = [
     channelTitle: 'NikVerse',
     channelHandle: '@onlynikverse',
     channelLogo: 'https://yt3.googleusercontent.com/zIpY9IYOxichfcpnbQY_hZ_3UIe35KL4ph3OGOB_T1zAJLyJVF5LC97QjEZ5cX0RV8gv73VX=s160-c-k-c0x00ffffff-no-rj',
-    viewCount: '785',
-    likeCount: '36',
+    viewCount: '14.2K',
+    likeCount: '980',
     isLiveStream: true
   },
   {
-    id: 'fallback-stream-livenik',
+    id: 'fallback-stream-livenik-1',
     videoId: '4FuuLBcFFG0',
     title: 'GTA 5 live | Gangster shots in LOS SANTOS #gaming #gta #shorts',
     description: 'Make sure to like and subscribe! Enjoy the gameplay.',
@@ -140,8 +230,8 @@ export const FALLBACK_STREAMS: YouTubeMediaItem[] = [
     channelTitle: 'LiveNik',
     channelHandle: '@nikislivenow',
     channelLogo: 'https://yt3.googleusercontent.com/a3LeRccig4dQoCsME-OKtZEF3sgIz7VSBdCEGgFomsTdJi1miuPJbcmsxixJ4aVs_648i85pzA=s176-c-k-c0x00ffffff-no-rj-mo',
-    viewCount: '87',
-    likeCount: '14',
+    viewCount: '8.4K',
+    likeCount: '620',
     isLiveStream: true
   },
   {
@@ -155,13 +245,88 @@ export const FALLBACK_STREAMS: YouTubeMediaItem[] = [
     channelTitle: 'NikVerse',
     channelHandle: '@onlynikverse',
     channelLogo: 'https://yt3.googleusercontent.com/zIpY9IYOxichfcpnbQY_hZ_3UIe35KL4ph3OGOB_T1zAJLyJVF5LC97QjEZ5cX0RV8gv73VX=s160-c-k-c0x00ffffff-no-rj',
-    viewCount: '785',
-    likeCount: '36',
+    viewCount: '12.8K',
+    likeCount: '840',
+    isLiveStream: true
+  },
+  {
+    id: 'fallback-stream-livenik-2',
+    videoId: 's9kZ_wBFr98',
+    title: 'Late Night Minecraft Hardcore Grind | Chat Decides My Moves',
+    description: 'Live survival with viewer challenges and PvP tournaments.',
+    thumbnail: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=640&auto=format&fit=crop',
+    publishedAt: '2026-07-28T22:00:00Z',
+    channelId: 'UC5RmtAHTV71M7jaEgnBjtWg',
+    channelTitle: 'LiveNik',
+    channelHandle: '@nikislivenow',
+    channelLogo: 'https://yt3.googleusercontent.com/a3LeRccig4dQoCsME-OKtZEF3sgIz7VSBdCEGgFomsTdJi1miuPJbcmsxixJ4aVs_648i85pzA=s176-c-k-c0x00ffffff-no-rj-mo',
+    viewCount: '16.5K',
+    likeCount: '1.2K',
+    isLiveStream: true
+  },
+  {
+    id: 'fallback-stream-nik-1',
+    videoId: 'mYVvP0GkYwE',
+    title: 'VoidMC Bedwars Championship LIVE! Team Battles & Ranks Giveaway',
+    description: 'Streaming custom Bedwars arenas and giving out rank rewards.',
+    thumbnail: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=640&auto=format&fit=crop',
+    publishedAt: '2026-07-19T18:30:00Z',
+    channelId: 'UCrX9IwrpdMmhrx6ZJoUinVA',
+    channelTitle: 'Nik',
+    channelHandle: '@nikgamerop',
+    channelLogo: 'https://yt3.googleusercontent.com/wfm3lt-ORBvbq_2fPczlcNAet-ANNfE0dAR-M2CTyc0IeT2Gqv47WLgXgueYviAvFgbk1SIBQA=s176-c-k-c0x00ffffff-no-rj-mo',
+    viewCount: '24.1K',
+    likeCount: '1.8K',
+    isLiveStream: true
+  },
+  {
+    id: 'fallback-stream-livenik-3',
+    videoId: 'pXz9Qw7KmV0',
+    title: 'GTA 5 Chaos Mod Stream | Everything Randomly Explodes',
+    description: 'Playing Los Santos with chat voting for crazy effects.',
+    thumbnail: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=640&auto=format&fit=crop',
+    publishedAt: '2026-06-25T19:00:00Z',
+    channelId: 'UC5RmtAHTV71M7jaEgnBjtWg',
+    channelTitle: 'LiveNik',
+    channelHandle: '@nikislivenow',
+    channelLogo: 'https://yt3.googleusercontent.com/a3LeRccig4dQoCsME-OKtZEF3sgIz7VSBdCEGgFomsTdJi1miuPJbcmsxixJ4aVs_648i85pzA=s176-c-k-c0x00ffffff-no-rj-mo',
+    viewCount: '18.9K',
+    likeCount: '1.4K',
+    isLiveStream: true
+  },
+  {
+    id: 'fallback-stream-nik-2',
+    videoId: 'zP9xLmK8v3a',
+    title: 'Custom Boss Battle Event Live! 100 Players vs The Ender Dragon King',
+    description: 'Epic server event with VoidMC community.',
+    thumbnail: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=640&auto=format&fit=crop',
+    publishedAt: '2026-08-04T17:00:00Z',
+    channelId: 'UCrX9IwrpdMmhrx6ZJoUinVA',
+    channelTitle: 'Nik',
+    channelHandle: '@nikgamerop',
+    channelLogo: 'https://yt3.googleusercontent.com/wfm3lt-ORBvbq_2fPczlcNAet-ANNfE0dAR-M2CTyc0IeT2Gqv47WLgXgueYviAvFgbk1SIBQA=s176-c-k-c0x00ffffff-no-rj-mo',
+    viewCount: '29.3K',
+    likeCount: '2.3K',
+    isLiveStream: true
+  },
+  {
+    id: 'fallback-stream-nikverse-3',
+    videoId: 'h8q1w3e4r5t',
+    title: 'VoidMC Season 3 SMP Launch Day Live! First Base Building',
+    description: 'Exploring the new world gen and building our team district.',
+    thumbnail: 'https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?q=80&w=640&auto=format&fit=crop',
+    publishedAt: '2026-08-10T14:30:00Z',
+    channelId: 'UCmEB1pZf34OdlA_h9E47gxA',
+    channelTitle: 'NikVerse',
+    channelHandle: '@onlynikverse',
+    channelLogo: 'https://yt3.googleusercontent.com/zIpY9IYOxichfcpnbQY_hZ_3UIe35KL4ph3OGOB_T1zAJLyJVF5LC97QjEZ5cX0RV8gv73VX=s160-c-k-c0x00ffffff-no-rj',
+    viewCount: '33.7K',
+    likeCount: '2.7K',
     isLiveStream: true
   }
 ];
 
-const STORAGE_KEY = 'nikverse_youtube_media_feed_v5';
+const STORAGE_KEY = 'nikverse_youtube_media_feed_v7';
 export const REFRESH_INTERVAL_MS = 35 * 60 * 1000; // 35 minutes
 
 interface CachedMediaData {

@@ -10,8 +10,8 @@ export const VoidMCSection: React.FC<VoidMCSectionProps> = ({
   themeMode = 'light'
 }) => {
   const storeUrl = 'https://store.void-mc.in';
-  // Logo extracted from https://postimg.cc/14bb5YWX
-  const voidLogoUrl = 'https://i.postimg.cc/Dyzh69Lr/logo.png';
+  // Use locally served logo from public/voidmc-logo.png with CDN fallback
+  const voidLogoUrl = '/voidmc-logo.png';
 
   return (
     <section

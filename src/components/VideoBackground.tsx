@@ -138,7 +138,13 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
   const activeSrc = backupVideoUrls[activeVideoIndex] || currentVideo.videoUrl;
 
   return (
-    <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none select-none hardware-accelerated">
+    <div 
+      className="absolute top-0 left-0 right-0 w-full h-[95vh] sm:h-[110vh] max-h-[1150px] min-h-[640px] overflow-hidden pointer-events-none select-none hardware-accelerated z-0"
+      style={{
+        WebkitMaskImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0.65) 65%, rgba(0, 0, 0, 0) 100%)',
+        maskImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0.65) 65%, rgba(0, 0, 0, 0) 100%)'
+      }}
+    >
       {/* Background Poster Image (fallback & instant paint) */}
       {currentVideo.fallbackPoster && (
         <img
@@ -146,7 +152,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
           alt="Background Wallpaper"
           loading="eager"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover z-0 opacity-90"
+          className="absolute inset-0 w-full h-full object-cover object-top z-0 opacity-90"
         />
       )}
 
@@ -164,23 +170,29 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
           referrerPolicy="no-referrer"
           onError={handleVideoError}
           onEnded={handleVideoEnded}
-          className="absolute min-w-full min-h-full w-auto h-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover opacity-100 pointer-events-none z-10 will-change-transform"
+          className="absolute min-w-full min-h-full w-auto h-auto top-0 left-1/2 -translate-x-1/2 object-cover object-top opacity-100 pointer-events-none z-10 will-change-transform"
         />
       ) : (
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full object-cover z-10" />
       )}
 
-      {/* Optimized Light/Dark Overlay - White glass for default/light mode, dark overlay for dark mode */}
+      {/* Light / Dark Ambient Tint Overlay */}
       <div
         className={`absolute inset-0 pointer-events-none z-15 transition-all duration-500 ${
           themeMode === 'light'
-            ? 'bg-white/20 backdrop-blur-[1.5px]'
-            : 'bg-black/55'
+            ? 'bg-white/15 backdrop-blur-[1px]'
+            : 'bg-black/40'
         }`}
       />
 
+      {/* Gradual Disappear & Blend-in Overlay at Bottom */}
+      <div 
+        className="absolute inset-x-0 bottom-0 h-64 sm:h-96 pointer-events-none z-20 bg-gradient-to-b from-transparent via-[#09090b]/60 to-[#09090b]" 
+        aria-hidden="true" 
+      />
+
       {/* Subtle Ambient Grain / Grid Pattern */}
-      <div className="absolute inset-0 mc-grid-pattern opacity-10 pointer-events-none z-20" />
+      <div className="absolute inset-0 mc-grid-pattern opacity-10 pointer-events-none z-25" />
     </div>
   );
 };

@@ -47,18 +47,22 @@ export const JoinUsPage: React.FC<JoinUsPageProps> = ({
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 sm:px-8 py-6 sm:py-10 z-20 flex flex-col gap-8">
-      
-      {/* TOP NAVIGATION & BACK BUTTON */}
-      <div className="flex items-center justify-between">
-        <button
-          onClick={onBackToHome}
-          className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/20 bg-black/40 hover:bg-black/70 text-zinc-200 hover:text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-md group active:scale-95"
-        >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform text-amber-400" />
-          <span>Back to Homepage</span>
-        </button>
-      </div>
+    <div className="relative w-full min-h-[calc(100vh-4rem)] bg-[#09090b] text-white flex flex-col items-center select-none pt-4 pb-20 px-4 sm:px-8">
+      {/* Background Lighting Aura */}
+      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/3 right-1/4 w-[450px] h-[450px] bg-yellow-500/10 rounded-full blur-[130px] pointer-events-none" />
+
+      <div className="w-full max-w-6xl z-10 flex flex-col gap-8">
+        {/* TOP NAVIGATION & BACK BUTTON */}
+        <div className="flex items-center justify-between">
+          <button
+            onClick={onBackToHome}
+            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/20 bg-black/40 hover:bg-black/70 text-zinc-200 hover:text-white font-mono text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-md group active:scale-95"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform text-amber-400" />
+            <span>Back to Homepage</span>
+          </button>
+        </div>
 
       {/* HERO BANNER */}
       <div className="text-center max-w-3xl mx-auto my-2">
@@ -208,6 +212,7 @@ export const JoinUsPage: React.FC<JoinUsPageProps> = ({
         onClose={() => setSelectedRoleForApply(null)}
       />
 
+      </div>
     </div>
   );
 };
