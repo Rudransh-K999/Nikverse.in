@@ -47,8 +47,8 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <>
-      {/* Universal Top Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 w-full h-16 bg-[#07070a]/90 backdrop-blur-md border-b border-white/10 px-4 sm:px-8 flex items-center justify-between transition-colors select-none">
+      {/* Universal Top Navbar (Transparent) */}
+      <header className="fixed top-0 left-0 right-0 z-50 w-full h-16 bg-transparent border-b border-white/10 px-4 sm:px-8 flex items-center justify-between transition-colors select-none">
         {/* Left: Avatar + Title */}
         <div
           onClick={() => handleNavClick('home')}
@@ -64,7 +64,7 @@ export const Header: React.FC<HeaderProps> = ({
             />
           </div>
 
-          <span className="font-landing font-bold tracking-normal text-xl sm:text-2xl text-amber-400 group-hover:text-amber-300 transition-colors">
+          <span className="font-landing font-bold tracking-normal text-xl sm:text-2xl text-amber-400 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] group-hover:text-amber-300 transition-colors">
             {PROFILE_INFO.name}
           </span>
         </div>
@@ -79,10 +79,10 @@ export const Header: React.FC<HeaderProps> = ({
                   <span
                     key={item.id}
                     title="Applications Closed"
-                    className="py-1.5 text-zinc-500 uppercase font-semibold cursor-not-allowed opacity-50 flex items-center gap-1.5 select-none"
+                    className="py-1.5 text-zinc-400 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] uppercase font-semibold cursor-not-allowed opacity-50 flex items-center gap-1.5 select-none"
                   >
                     <span>{item.label}</span>
-                    <span className="text-[10px] tracking-normal font-mono uppercase bg-white/5 border border-white/10 px-1 py-0.2 rounded text-zinc-400">
+                    <span className="text-[10px] tracking-normal font-mono uppercase bg-black/40 border border-white/15 px-1 py-0.2 rounded text-zinc-400">
                       Closed
                     </span>
                   </span>
@@ -98,10 +98,10 @@ export const Header: React.FC<HeaderProps> = ({
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id, item.disabled)}
-                  className={`py-1.5 transition-all duration-200 relative cursor-pointer uppercase font-semibold ${
+                  className={`py-1.5 transition-all duration-200 relative cursor-pointer uppercase font-semibold drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] ${
                     isActive
-                      ? 'text-amber-400 drop-shadow-[0_0_10px_rgba(245,158,11,0.7)]'
-                      : 'text-zinc-300 hover:text-amber-300'
+                      ? 'text-amber-400 drop-shadow-[0_0_10px_rgba(245,158,11,0.8)]'
+                      : 'text-zinc-200 hover:text-amber-300'
                   }`}
                 >
                   <span>{item.label}</span>
@@ -119,7 +119,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Theme Toggle */}
           <button
             onClick={onToggleTheme}
-            className="w-9 h-9 flex items-center justify-center rounded text-sm text-zinc-300 hover:text-amber-300 hover:bg-white/10 transition-colors cursor-pointer"
+            className="w-9 h-9 flex items-center justify-center rounded text-sm text-zinc-200 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] hover:text-amber-300 hover:bg-white/10 transition-colors cursor-pointer"
             title={themeMode === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
             aria-label="Toggle theme mode"
           >
@@ -129,7 +129,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Mobile Hamburger Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden w-10 h-10 flex items-center justify-center text-zinc-200 hover:text-amber-400 hover:bg-white/10 rounded transition-colors cursor-pointer"
+            className="md:hidden w-10 h-10 flex items-center justify-center text-zinc-100 hover:text-amber-400 hover:bg-white/10 rounded transition-colors cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {isMobileMenuOpen ? (
