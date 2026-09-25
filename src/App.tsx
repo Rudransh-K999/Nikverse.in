@@ -372,26 +372,50 @@ export default function App() {
       />
 
       {/* ------------------------------------------------------------------ */}
-      {/* CINEMATIC BACKGROUND ARTWORK (Main Landing Hero & Who Am I)         */}
+      {/* CINEMATIC BACKGROUND ARTWORK (Continuous across scenes)             */}
       {/* ------------------------------------------------------------------ */}
       <div
-        className={`fixed inset-0 z-0 overflow-hidden pointer-events-none select-none transition-opacity duration-700 ${
-          currentPage === 'home' && (activeSceneIndex === 0 || activeSceneIndex === 1) ? 'opacity-100' : 'opacity-0'
+        className={`fixed inset-0 z-0 overflow-hidden pointer-events-none select-none transition-opacity duration-500 ${
+          currentPage === 'home' ? 'opacity-100' : 'opacity-0'
         }`}
       >
+        {/* LANDING HERO POSTER (Scene 0) */}
         <img
-          src="https://i.postimg.cc/vmmNDTv6/Chat-GPT-Image-Sep-24-2026-09-27-21-PM.png"
-          alt="Nikverse Main Landing Background"
+          src="https://i.postimg.cc/d3F2Ybxj/Chat-GPT-Image-Sep-24-2026-09-27-24-PM.png"
+          alt="Nikverse Hero Poster"
+          referrerPolicy="no-referrer"
+          loading="eager"
+          decoding="async"
+          style={{ objectPosition: 'center 0%' }}
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out filter-none ${
+            activeSceneIndex === 0
+              ? 'opacity-100 scale-100 brightness-135 contrast-105 saturate-110'
+              : 'opacity-0 scale-103 pointer-events-none'
+          }`}
+        />
+
+        {/* ABOUT ME POSTER (Scene 1) */}
+        <img
+          src="https://i.postimg.cc/wvXWLQKJ/franklin-in-gta-5-3840x2160-14721.jpg"
+          alt="About Me Poster"
           referrerPolicy="no-referrer"
           loading="eager"
           decoding="async"
           style={{ objectPosition: 'center 20%' }}
-          className="w-full h-full object-cover transition-all duration-700 ease-out filter-none scale-100 brightness-110 contrast-105"
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out filter-none ${
+            activeSceneIndex === 1
+              ? 'opacity-100 scale-100 brightness-115 contrast-105 saturate-105'
+              : 'opacity-0 scale-103 pointer-events-none'
+          }`}
         />
+
+        {/* SCENE 2 (Videos & Uploads) has NO background image, as requested: both images fade to opacity-0 */}
 
         {/* Bottom Fade Blur: blurs the bottom of the poster softly */}
         <div
-          className="absolute inset-x-0 bottom-0 h-64 sm:h-80 pointer-events-none z-[2] backdrop-blur-md opacity-70"
+          className={`absolute inset-x-0 bottom-0 h-64 sm:h-80 pointer-events-none z-[2] backdrop-blur-md transition-opacity duration-700 ${
+            activeSceneIndex === 0 ? 'opacity-70' : activeSceneIndex === 1 ? 'opacity-45' : 'opacity-0'
+          }`}
           style={{
             maskImage: 'linear-gradient(to top, black 30%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to top, black 30%, transparent 100%)'
@@ -403,36 +427,26 @@ export default function App() {
         <div className="absolute bottom-10 right-1/4 w-[400px] h-[400px] bg-yellow-500/10 rounded-full blur-[100px] pointer-events-none z-[1]" />
 
         {/* Ambient Vignette and Soft Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/35 via-35% to-transparent pointer-events-none z-[1]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent pointer-events-none z-[1]" />
+        <div
+          className={`absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/40 via-35% to-transparent pointer-events-none z-[1] transition-opacity duration-500 ${
+            activeSceneIndex === 2 ? 'opacity-0' : 'opacity-100'
+          }`}
+        />
+        <div
+          className={`absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent pointer-events-none z-[1] transition-opacity duration-500 ${
+            activeSceneIndex === 2 ? 'opacity-0' : 'opacity-100'
+          }`}
+        />
+
+        {/* Dynamic Dark Curtain */}
+        <div
+          className={`absolute inset-0 bg-black transition-opacity duration-700 pointer-events-none z-[1] ${
+            activeSceneIndex === 0 ? 'opacity-0' : activeSceneIndex === 1 ? 'opacity-25' : 'opacity-0'
+          }`}
+        />
 
         {/* Subtle Minecraft grid pattern */}
         <div className="absolute inset-0 mc-grid-pattern opacity-10 pointer-events-none z-[1]" />
-      </div>
-
-      {/* ------------------------------------------------------------------ */}
-      {/* BACKGROUND ARTWORK FOR VIDEOS & LIVESTREAMS (Scene 2)              */}
-      {/* ------------------------------------------------------------------ */}
-      <div
-        className={`fixed inset-0 z-0 overflow-hidden pointer-events-none select-none transition-opacity duration-500 ${
-          currentPage === 'home' && activeSceneIndex === 2 ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
-        <img
-          src="https://i.postimg.cc/38kDFhSL/novaskin-wallpaper-pizzamovienight.jpg"
-          alt="Videos and Livestreams Background"
-          referrerPolicy="no-referrer"
-          loading="eager"
-          decoding="async"
-          onError={(e) => {
-            (e.currentTarget as HTMLImageElement).src = 'https://i.postimg.cc/4yTdXDTt/novaskin-wallpaper-pizzamovienight.jpg';
-          }}
-          className="w-full h-full object-cover object-center opacity-80 sm:opacity-85 filter-none contrast-105 brightness-105 scale-100 transition-all duration-500"
-        />
-        {/* Crisp minimal contrast overlays to keep cards and texts sharp without blur */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent via-35% to-[#07070a]/90 pointer-events-none" />
-        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
-        <div className="absolute inset-0 mc-grid-pattern opacity-5 pointer-events-none" />
       </div>
 
       {/* Top Navbar Header */}
@@ -450,8 +464,8 @@ export default function App() {
       {/* ------------------------------------------------------------------ */}
       <main className="relative z-10 w-full h-[100dvh]">
         {currentPage === 'contact' ? (
-          <div className="w-full h-full overflow-y-auto bg-[#07070a] flex flex-col custom-scrollbar">
-            <div className="w-full min-h-[100dvh] flex flex-col">
+          <div className="w-full h-full overflow-y-auto pt-16 bg-[#09090b] flex flex-col custom-scrollbar">
+            <div className="flex-1 w-full flex flex-col">
               <ContactPage onBackToHome={() => handleNavigate('home')} />
             </div>
             <Footer

@@ -41,13 +41,9 @@ export function preloadImage(url: string): Promise<void> {
  */
 export async function preloadAllAppAssets(): Promise<void> {
   const assetUrls: string[] = [
-    // Intro & Background Artworks
-    'https://i.postimg.cc/vmmNDTv6/Chat-GPT-Image-Sep-24-2026-09-27-21-PM.png',
-    'https://i.postimg.cc/38kDFhSL/novaskin-wallpaper-pizzamovienight.jpg',
-    'https://i.postimg.cc/4yTdXDTt/novaskin-wallpaper-pizzamovienight.jpg',
-    'https://i.postimg.cc/d114QfwC/novaskin-wallpaper-kingsguard.jpg',
-    'https://i.postimg.cc/gcB8PJwY/Gemini-Generated-Image-e3jnxoe3jnxoe3jn.png',
-    'https://i.postimg.cc/wH9VLRgs/Gemini-Generated-Image-e3jnxoe3jnxoe3jn.png',
+    // Intro & Brand
+    'https://i.postimg.cc/d3F2Ybxj/Chat-GPT-Image-Sep-24-2026-09-27-24-PM.png',
+    'https://i.postimg.cc/wvXWLQKJ/franklin-in-gta-5-3840x2160-14721.jpg',
     PROFILE_INFO.avatar,
     PROFILE_INFO.fallbackAvatar,
     PROFILE_INFO.whoAmIImage || '',
