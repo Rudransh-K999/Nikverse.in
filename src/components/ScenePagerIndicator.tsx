@@ -10,8 +10,7 @@ export interface SceneMeta {
 export const SCENES_META: SceneMeta[] = [
   { id: 'home', name: 'HOME', num: '01' },
   { id: 'story', name: 'ABOUT', num: '02' },
-  { id: 'uploads', name: 'UPLOADS', num: '03' },
-  { id: 'community', name: 'REALM', num: '04' }
+  { id: 'uploads', name: 'UPLOADS', num: '03' }
 ];
 
 interface ScenePagerIndicatorProps {

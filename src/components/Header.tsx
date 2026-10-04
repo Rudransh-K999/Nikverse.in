@@ -47,8 +47,8 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <>
-      {/* Universal Top Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 w-full h-16 bg-[#09090b]/85 backdrop-blur-md border-b border-white/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.35)] px-4 sm:px-8 flex items-center justify-between transition-all select-none">
+      {/* Universal Top Navbar: Fully Transparent */}
+      <header className="fixed top-0 left-0 right-0 z-50 w-full h-16 bg-transparent border-b border-transparent shadow-none px-4 sm:px-8 flex items-center justify-between transition-all select-none">
         {/* Left: Avatar + Title */}
         <div
           onClick={() => handleNavClick('home')}

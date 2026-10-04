@@ -4,7 +4,7 @@ import { Header } from './components/Header';
 import { HeroScene } from './components/HeroScene';
 import { AboutScene } from './components/AboutScene';
 import { RecentUploads } from './components/RecentUploads';
-import { VoidMCSection } from './components/VoidMCSection';
+import { LatestStreams } from './components/LatestStreams';
 import { Footer } from './components/Footer';
 import { JoinUsPage } from './components/JoinUsPage';
 import { ContactPage } from './components/ContactPage';
@@ -66,6 +66,7 @@ export default function App() {
   const [activeSceneIndex, setActiveSceneIndex] = useState<number>(0);
   const [direction, setDirection] = useState<number>(1);
   const [subSectionId, setSubSectionId] = useState<string>('uploads');
+  const [uploadsFadeProgress, setUploadsFadeProgress] = useState<number>(0);
 
   // Modals state
   const [isShareOpen, setIsShareOpen] = useState(false);
@@ -281,13 +282,19 @@ export default function App() {
     };
   }, [activeSceneIndex, currentPage]);
 
-  // Track sub-section when scrolling inside Scene 2
+  // Track sub-section and fade progression when scrolling inside Scene 2
   const handleScene2Scroll = () => {
     const container = scene2ScrollRef.current;
     if (!container) return;
 
     const scrollTop = container.scrollTop;
-    const subSections = ['uploads', 'voidmc'];
+
+    // Smooth fade out of uploads as user scrolls towards streams
+    const fadeDistance = 420;
+    const progress = Math.min(1, Math.max(0, scrollTop / fadeDistance));
+    setUploadsFadeProgress(progress);
+
+    const subSections = ['uploads', 'streams'];
 
     for (let i = subSections.length - 1; i >= 0; i--) {
       const id = subSections[i];
@@ -328,7 +335,7 @@ export default function App() {
     }
 
     // Otherwise it belongs in Scene 2
-    const targetId = sectionId === 'streams' ? 'uploads' : sectionId === 'community' ? 'voidmc' : sectionId;
+    const targetId = sectionId === 'streams' ? 'streams' : sectionId === 'community' ? 'streams' : sectionId;
     if (activeSceneIndex !== 2) {
       goToScene(2);
       setTimeout(() => {
@@ -540,7 +547,7 @@ export default function App() {
               </motion.div>
             )}
 
-            {/* SCENE 2: RECENT MEDIA UPLOADS & ONWARDS (Natural Scroll & Scroll Animations) */}
+            {/* SCENE 2: RECENT MEDIA UPLOADS & STREAMS (Overlap & Fade Scroll Animation) */}
             {activeSceneIndex === 2 && (
               <motion.div
                 key="scene-content"
@@ -551,41 +558,38 @@ export default function App() {
                 exit="exit"
                 ref={scene2ScrollRef}
                 onScroll={handleScene2Scroll}
-                className="w-full h-[100dvh] overflow-y-auto overflow-x-hidden pt-16 sm:pt-20 scroll-smooth custom-scrollbar flex flex-col justify-between"
+                className="w-full h-[100dvh] overflow-y-auto overflow-x-hidden scroll-smooth custom-scrollbar flex flex-col justify-between"
               >
-                <div className="w-full flex flex-col items-center">
-                  {/* Recent Uploads (Videos & Live Streams in Vertical Layout) */}
-                  <motion.div
+                <div className="w-full flex flex-col items-center relative">
+                  {/* Latest Uploads: Sticky at top, stays visible with smooth parallax as streams slides over it */}
+                  <div
                     id="uploads"
-                    initial={{ opacity: 0, y: 35 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-50px' }}
-                    transition={{ duration: 0.55 }}
-                    className="w-full max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-12 scroll-mt-20"
+                    className="sticky top-0 w-full min-h-[100dvh] flex flex-col justify-center items-center z-10 will-change-transform pt-16 sm:pt-20 pb-8"
+                    style={{
+                      transform: `scale(${1 - uploadsFadeProgress * 0.04}) translate3d(0, ${-uploadsFadeProgress * 30}px, 0)`
+                    }}
                   >
                     <RecentUploads themeMode={themeMode} />
-                  </motion.div>
+                  </div>
 
-                  {/* Void MC Server Section */}
-                  <motion.div
-                    id="voidmc"
-                    initial={{ opacity: 0, y: 35 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-50px' }}
-                    transition={{ duration: 0.55 }}
-                    className="w-full max-w-7xl mx-auto px-4 sm:px-8 py-8 sm:py-12 scroll-mt-20"
+                  {/* Latest Streams: Relative z-20, slides up directly OVER uploads page */}
+                  <div
+                    id="streams"
+                    className="relative z-20 w-full min-h-[100dvh] flex flex-col justify-center items-center scroll-mt-0 shadow-[0_-25px_60px_rgba(0,0,0,0.8)] border-t border-white/[0.08] pt-16 sm:pt-20 pb-12"
                   >
-                    <VoidMCSection themeMode={themeMode} />
-                  </motion.div>
+                    <LatestStreams themeMode={themeMode} />
+                  </div>
                 </div>
 
                 {/* 4. Footer - Simple, full width, connected to sides */}
-                <Footer
-                  themeMode={themeMode}
-                  onNavigate={(sec) => handleNavigate(sec as any)}
-                  onOpenContact={() => handleNavigate('contact')}
-                  onOpenJoinUs={() => handleNavigate('join-us')}
-                />
+                <div className="relative z-30 w-full bg-[#09090b]">
+                  <Footer
+                    themeMode={themeMode}
+                    onNavigate={(sec) => handleNavigate(sec as any)}
+                    onOpenContact={() => handleNavigate('contact')}
+                    onOpenJoinUs={() => handleNavigate('join-us')}
+                  />
+                </div>
               </motion.div>
             )}
           </AnimatePresence>

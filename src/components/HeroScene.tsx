@@ -48,10 +48,10 @@ export const HeroScene: React.FC<HeroSceneProps> = ({
         transition={{ duration: 0.6, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
         className="flex flex-row items-center gap-5 sm:gap-8 flex-nowrap select-none"
       >
-        {/* Left Button: Bordered Box (Exactly like 'See the work' in Screenshot 2) */}
+        {/* Left Button: Transparent glass style like Get in touch with original amber hover animation */}
         <button
           onClick={onSeeTheWork}
-          className="px-5 sm:px-6 py-2.5 sm:py-3 bg-black/70 hover:bg-amber-400 text-white hover:text-zinc-950 font-bold font-sans text-sm sm:text-base border border-amber-500/80 rounded-none transition-colors cursor-pointer active:scale-95 whitespace-nowrap shadow-lg"
+          className="px-5 sm:px-6 py-2.5 sm:py-3 bg-white/5 hover:bg-amber-400 text-zinc-300 hover:text-zinc-950 font-bold font-sans text-sm sm:text-base border border-white/20 hover:border-amber-400 rounded-none transition-all duration-200 cursor-pointer active:scale-95 whitespace-nowrap shadow-lg"
         >
           See the work
         </button>

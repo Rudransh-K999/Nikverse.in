@@ -19,23 +19,23 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
   };
 
   return (
-    <div className="relative w-full flex-1 bg-[#09090b] text-white flex flex-col items-center select-none pt-10 pb-16 px-4 sm:px-8">
-      {/* Background Artwork: Crisp and clear, gently fading into bottom page color */}
-      <div className="absolute top-0 inset-x-0 h-[600px] sm:h-[720px] overflow-hidden pointer-events-none select-none z-0">
+    <div className="relative w-full min-h-[calc(100dvh-4rem)] bg-[#09090b] text-white flex flex-col justify-between items-center select-none pt-8 pb-8 px-4 sm:px-8">
+      {/* Background Artwork: Crisp and clear, covers the whole screen */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0">
         <img
           src="https://i.postimg.cc/fLNCzS3h/5c6d7b09e65d61e28097ed3f4ee6e0384cea6654-2-690x388.png"
           alt="Nikverse Artwork"
           referrerPolicy="no-referrer"
           loading="eager"
           decoding="async"
-          className="w-full h-full object-cover object-top opacity-80 sm:opacity-90 filter-none"
+          className="w-full h-full object-cover object-center opacity-80 sm:opacity-90 filter-none"
         />
         {/* Soft bottom fade blend into dark background */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 via-50% to-[#09090b]" />
       </div>
 
-      {/* Main Container */}
-      <div className="w-full max-w-3xl mt-4 sm:mt-8 relative z-10 flex flex-col items-start text-left space-y-8">
+      {/* Main Container: Centered vertically within the full screen */}
+      <div className="w-full max-w-3xl my-auto relative z-10 flex flex-col items-start text-left space-y-8 py-6">
         
         {/* Main Section: Looking for Collab */}
         <div className="w-full flex flex-col items-start space-y-3">

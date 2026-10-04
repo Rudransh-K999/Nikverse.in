@@ -44,6 +44,9 @@ export async function preloadAllAppAssets(): Promise<void> {
     // Intro & Brand
     'https://i.postimg.cc/d3F2Ybxj/Chat-GPT-Image-Sep-24-2026-09-27-24-PM.png',
     'https://i.postimg.cc/wvXWLQKJ/franklin-in-gta-5-3840x2160-14721.jpg',
+    'https://i.postimg.cc/bJhLRVjt/novaskin-wallpaper-aroundtheglobeportugal.jpg',
+    'https://i.postimg.cc/nhYk8Wvp/Gemini-Generated-Image-j342bxj342bxj342-clean.png',
+    'https://i.postimg.cc/brxhpL61/Gemini-Generated-Image-xw8h8exw8h8exw8h-clean.png',
     PROFILE_INFO.avatar,
     PROFILE_INFO.fallbackAvatar,
     PROFILE_INFO.whoAmIImage || '',
