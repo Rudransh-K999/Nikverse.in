@@ -48,7 +48,7 @@ const SOCIAL_PLATFORMS: SocialPlatform[] = [
     handle: 'Nikverse Realm',
     category: 'Community & SMP',
     description: 'Join thousands of members, talk in voice channels, and get VoidMC server announcements.',
-    url: 'https://discord.gg/9bCw52SCy4',
+    url: 'https://discord.gg/UqxMNKaAnc',
     avatar: 'https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png',
     color: '#5865F2',
     buttonText: 'Join Discord Server'

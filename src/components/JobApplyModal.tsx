@@ -211,7 +211,7 @@ export const JobApplyModal: React.FC<JobApplyModalProps> = ({
               Applications for <strong className="text-rose-500">{role.title}</strong> are currently closed. Check back soon or join our Discord announcements channel for future openings.
             </p>
             <a
-              href="https://discord.gg/9bCw52SCy4"
+              href="https://discord.gg/UqxMNKaAnc"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#5865F2] hover:bg-[#4752C4] text-white font-mono text-xs uppercase font-bold tracking-wider transition-all cursor-pointer shadow-md"

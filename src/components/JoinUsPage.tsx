@@ -185,7 +185,7 @@ export const JoinUsPage: React.FC<JoinUsPageProps> = ({
         </div>
 
         <a
-          href="https://discord.gg/9bCw52SCy4"
+          href="https://discord.gg/UqxMNKaAnc"
           target="_blank"
           rel="noopener noreferrer"
           className="px-5 py-2.5 rounded-xl bg-[#5865F2] hover:bg-[#4752C4] text-white font-mono text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shrink-0 shadow-md"

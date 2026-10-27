@@ -9,7 +9,7 @@ interface CommunitySectionProps {
 export const CommunitySection: React.FC<CommunitySectionProps> = ({
   themeMode = 'light'
 }) => {
-  const discordInviteUrl = 'https://discord.gg/9bCw52SCy4';
+  const discordInviteUrl = 'https://discord.gg/UqxMNKaAnc';
   const gtaCommunityImgUrl = 'https://store-images.s-microsoft.com/image/apps.50223.14086826113896348.0ac2ef86-2cca-45c3-9d11-1dc9ac71c024.34520097-f601-4a06-b16d-e40280f0fc15';
   const topImgUrl = 'https://i.ibb.co/MD7L0xys/IMG-20260817-091307-removebg-preview.png';
   const bottomImgUrl = 'https://i.ibb.co/7dD42hcv/IMG-20260817-091314-removebg-preview.png';

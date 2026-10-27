@@ -52,7 +52,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     id: 'discord',
     name: 'Discord Community',
-    url: 'https://discord.gg/9bCw52SCy4',
+    url: 'https://discord.gg/UqxMNKaAnc',
     iconName: 'MessageSquare',
     description: 'Join 18,000+ builders, share screenshots & chat',
     category: 'community',

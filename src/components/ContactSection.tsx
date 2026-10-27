@@ -19,7 +19,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 }) => {
   const [copied, setCopied] = useState(false);
   const contactEmail = PROFILE_INFO.sponsorEmail || 'team.nikverse@gmail.com';
-  const discordInviteUrl = 'https://discord.gg/9bCw52SCy4';
+  const discordInviteUrl = 'https://discord.gg/UqxMNKaAnc';
   const bgImgUrl =
     PROFILE_INFO.contactImage ||
     'https://i.ibb.co/Wpy2pxxk/Gemini-Generated-Image-qurypequrypequry-removebg-preview.png';

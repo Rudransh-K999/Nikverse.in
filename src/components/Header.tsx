@@ -191,7 +191,7 @@ export const Header: React.FC<HeaderProps> = ({
 
             <div className="pt-3 border-t border-white/10 flex flex-col gap-2">
               <a
-                href="https://discord.gg/9bCw52SCy4"
+                href="https://discord.gg/UqxMNKaAnc"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}

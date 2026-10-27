@@ -10,7 +10,7 @@ interface ContactPageProps {
 export const ContactPage: React.FC<ContactPageProps> = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const businessEmail = 'team.nikverse@gmail.com';
-  const discordInviteUrl = 'https://discord.gg/9bCw52SCy4';
+  const discordInviteUrl = 'https://discord.gg/UqxMNKaAnc';
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(businessEmail);
